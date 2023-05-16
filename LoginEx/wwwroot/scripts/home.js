@@ -14,12 +14,12 @@
     else {
         const user = await response.json();
         localStorage.setItem('user', JSON.stringify(user));
-        document.location = "https://localhost:44333/pages/update.html";
+        document.location = "https://localhost:44333/pages/Products.html";
     }
 }
 
 const signUp = async () => {
-    const email = document.getElementById("username2").value;
+    const email = document.getElementById("email").value;
     const pwd = document.getElementById("userpwd2").value;
     const fname = document.getElementById("fname2").value;
     const lname = document.getElementById("lname2").value;
@@ -36,7 +36,7 @@ const signUp = async () => {
         const newUser = await response.json();
         localStorage.setItem('user', JSON.stringify(newUser));
 
-        document.location = "https://localhost:44333/pages/update.html";
+        document.location = "https://localhost:44333/pages/Products.html";
     }
     else { alert('request failed'); }
 }
@@ -70,6 +70,7 @@ const updateUser = async () => {
         localStorage.setItem('user', JSON.stringify(updatedUser));
     alert("user details was updated");
     }
+    document.location = "https://localhost:44333/pages/Products.html";
 }
 
 const checkPasswordStrength = async () => {
@@ -83,4 +84,7 @@ const checkPasswordStrength = async () => {
     })
     const strength = await res.json();
     document.getElementById("file").setAttribute("value", strength);
+}
+const cancel = () => {
+    document.location = "https://localhost:44333/pages/Products.html";
 }

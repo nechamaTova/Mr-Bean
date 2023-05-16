@@ -41,14 +41,16 @@ namespace Repository
             return users.Count() == 0 ? null : users[0];
         }
 
-        public async Task updateUser(User updatedUser, int id)
+        public async Task<User> updateUser( int id,User updatedUser)
         {
             User userToUpdate = await _Store214089435Context.Users.FindAsync(id);
             if (userToUpdate != null)
             {
                 _Store214089435Context.Entry(userToUpdate).CurrentValues.SetValues(updatedUser);
                 await _Store214089435Context.SaveChangesAsync();
+                return updatedUser;
             }
+            return null;
         }
     }
 }

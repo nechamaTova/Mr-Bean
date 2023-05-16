@@ -7,6 +7,6 @@ namespace Business
         Task<User> addNewUser(User newUser);
         Task<User> GetUserById(int id);
         Task<User> SignIn(User userData);
-        Task updateUser(int id, User updatedUser);
+        Task<User> updateUser(int id, User updatedUser);
     }
 }

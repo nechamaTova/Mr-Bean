@@ -10,7 +10,7 @@ window.onload =  () => {
         clone.querySelector(".imageColumn img").src = `../img/${p.categoryId}/${p.imagePath}.jpg`;
         clone.querySelector(".descriptionColumn h3").innerText = p.productName;
         clone.querySelector(".descriptionColumn p").innerText = p.count;
-        clone.querySelector(".price").innerText = p.price;
+        clone.querySelector(".price").innerText ="$"+ p.price;
         clone.querySelector(".expandoHeight a").onclick = () => { removeItem(p.productId) }
         document.querySelector("tbody").appendChild(clone);
         countProducts += p.count;
@@ -43,7 +43,7 @@ const placeOrder = async () => {
     }, 0);
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) { alert("please sign in!"); return; }
-    const orderItems = cart.map(p => { return { productId: p.productId } })
+    const orderItems = cart.map(p => { return { productId: p.productId, Quantity :p.count} })
     const response = await fetch("https://localhost:44333/api/Order", {
         method: 'POST',
         headers: {

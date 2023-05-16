@@ -54,7 +54,7 @@ const addToCart = (product) => {
     if (existingProd) existingProd.count += 1;
     else cart.push({ ...product, count:1 });
     localStorage.setItem("cart", JSON.stringify(cart));
-    document.querySelector("#ItemsCountText").innerText = cart.length;
+    document.querySelector("#ItemsCountText").innerText = parseInt(document.querySelector("#ItemsCountText").innerText)+1;
 }
 
 const filterProducts = async () => {

@@ -12,6 +12,6 @@ namespace Repository
         Task<User> addNewUser(User newUser);
         Task<User> getUserById(int id);
         Task<User> signIn(User uesrData);
-        Task updateUser(User updatedUser, int id);
+        Task<User> updateUser( int id,User updatedUser);
     }
 }

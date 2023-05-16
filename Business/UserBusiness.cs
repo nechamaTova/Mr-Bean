@@ -16,7 +16,7 @@ namespace Business
         }
         public async Task<User> addNewUser(User newUser)
         {
-            if (await passwordBusiness.goodPassword(newUser.UserPassword) >= 1)
+            if (await passwordBusiness.goodPassword(newUser.UserPassword) >=2)
                 return await userRepository.addNewUser(newUser);
             else
                 return null;
@@ -31,9 +31,9 @@ namespace Business
             return await userRepository.signIn(userData);
         }
 
-        public async Task updateUser(int id, User updatedUser)
+        public async Task<User> updateUser(int id, User updatedUser)
         {
-            await userRepository.updateUser(updatedUser, id);
+            return await userRepository.updateUser( id,updatedUser);
         }
 
     

@@ -34,7 +34,7 @@ namespace LoginEx.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        [Route("SignIn")]//no dto yet
+        [Route("SignIn")]
         public async Task<ActionResult<UserDTO>> SignIn([FromBody] UserLoginDTO userLoginData)
         {
 
@@ -57,17 +57,15 @@ namespace LoginEx.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] UserDTO updatedUserDto)
+        public async Task<UserDTO> Put(int id, [FromBody] UserDTO updatedUserDto)
         {
             User updatedUser = _mapper.Map<UserDTO, User>(updatedUserDto);
-            await userBusiness.updateUser(id, updatedUser);
+            updatedUser=await userBusiness.updateUser(id, updatedUser);
+             return _mapper.Map< User,UserDTO>(updatedUser);
+
+             
         }
 
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
 
        
     }

@@ -1,5 +1,5 @@
-﻿
-window.onload =  () => {
+﻿const getShoppingList = () => {
+
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     var countProducts = 0;
     var sumPrice = 0;
@@ -10,7 +10,7 @@ window.onload =  () => {
         clone.querySelector(".imageColumn img").src = `../img/${p.categoryId}/${p.imagePath}.jpg`;
         clone.querySelector(".descriptionColumn h3").innerText = p.productName;
         clone.querySelector(".descriptionColumn p").innerText = p.count;
-        clone.querySelector(".price").innerText ="$"+ p.price;
+        clone.querySelector(".price").innerText = "$" + p.price;
         clone.querySelector(".expandoHeight a").onclick = () => { removeItem(p.productId) }
         document.querySelector("tbody").appendChild(clone);
         countProducts += p.count;
@@ -19,6 +19,9 @@ window.onload =  () => {
     document.querySelector("#itemCount").innerText = countProducts;
     document.querySelector("#totalAmount").innerText = sumPrice;
 }
+
+window.addEventListener('load', getShoppingList);
+
 
 const removeItem = (id) => {
     const cart = JSON.parse(localStorage.getItem("cart"));
@@ -55,5 +58,7 @@ const placeOrder = async () => {
     if (response.ok) localStorage.setItem("cart", null);
     const order = await response.json();
     alert(`order number ${order.orderId} created successfully`);
+    document.querySelector("tbody").innerText = '';
+    getShoppingList()
 
 }

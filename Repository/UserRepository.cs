@@ -28,6 +28,11 @@ namespace Repository
 
         }
 
+        public async Task<User?> getUserByName(string name)
+        {
+            var user= await _Store214089435Context.Users.Where(u => u.UserFname == name).ToListAsync();
+            return user != null ? user[0] : null;
+        }
         public async Task<User> getUserById(int id)
         {
             User? user = await _Store214089435Context.Users.FindAsync(id);

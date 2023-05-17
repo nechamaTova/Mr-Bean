@@ -27,6 +27,7 @@ const getAllProducts = async (query) => {
         clon.querySelector("button").addEventListener("click", () => { addToCart(product)});
         document.getElementById("PoductList").appendChild(clon);
     })
+    document.querySelector("#counter").innerText = products.length;
     return products;
 }
 

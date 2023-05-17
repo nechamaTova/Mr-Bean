@@ -58,7 +58,5 @@ const placeOrder = async () => {
     if (response.ok) localStorage.setItem("cart", null);
     const order = await response.json();
     alert(`order number ${order.orderId} created successfully`);
-    document.querySelector("tbody").innerText = '';
-    getShoppingList()
-
+    window.location = "https://localhost:44333/pages/Products.html"
 }

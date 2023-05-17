@@ -12,7 +12,7 @@
         <h2 style="color:white">Sign In</h2>
         <input id="username" type="text" placeholder="user name" /><br /><br />
         <input id="userpwd" type="password" placeholder="password" /><br /><br />
-        <button onclick="signIn()">login</button><br /><br />
+        <button id="signInButton"  onclick="signIn()">login</button><br /><br />
         <div id="signup-link"><a onclick="document.getElementById('signup-form').style.setProperty('visibility', 'visible')">sign up</a><br /></div>
     </div>
     <br /><br />
@@ -25,7 +25,7 @@
               <div id="passwordStrength"></div>
               <input id="fname2" type="text" placeholder="first name" /><br /><br />
               <input id="lname2" type="text" placeholder="last name" /><br /><br />
-              <button onclick="signUp()">sign up</button>
+              <button id="signUpButton" onclick="signUp()">sign up</button>
           </div>
 </body>
 </html>

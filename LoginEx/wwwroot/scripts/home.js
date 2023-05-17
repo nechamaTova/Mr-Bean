@@ -1,4 +1,8 @@
 ﻿const signIn = async () => {
+    alert('sdfa')
+
+    const button = document.querySelector("#signInButton");
+    button.disabled = true;
     const email = document.getElementById("username").value;
     const pwd = document.getElementById("userpwd").value;
     const response = await fetch("https://localhost:44333/api/user/SignIn", {
@@ -9,7 +13,9 @@
         body: JSON.stringify({ "userEmail": email, "userPassword": pwd })
     });
     if (response.status == 204) { alert('one or more parameters are wrong'); }
-    if (!response.ok) { }
+    if (!response.ok) {
+        alert("please sign In")
+    }
 
     else {
         const user = await response.json();

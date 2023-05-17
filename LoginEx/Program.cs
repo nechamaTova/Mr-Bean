@@ -21,6 +21,8 @@ builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IOrderBusiness, OrderBusiness>();
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddTransient<IPasswordBusiness, PasswordBusiness>();
+//builder.Services.AddTransient<IRatingBusiness, RatingBusiness>();
+//builder.Services.AddTransient<IRatingRepository, RatingRepository>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<Store214089435Context>(options => options.UseSqlServer(connectionString: builder.Configuration.GetConnectionString("school")));
 builder.Services.AddEndpointsApiExplorer();
@@ -38,6 +40,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseerrorHandlingMiddleware();
 
+app.UseRatingMiddleware();
 // Configure the HTTP request pipeline.
 app.UseStaticFiles();
 

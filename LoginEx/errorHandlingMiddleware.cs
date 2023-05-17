@@ -27,7 +27,7 @@ namespace LoginEx
             {
                 _logger.LogError($"server error :{e.Message}, {e.StackTrace}");
                 httpContext.Response.StatusCode = 500;
-                await httpContext.Response.WriteAsync("internal server error");
+                await httpContext.Response.WriteAsync("some server error occured, we are sorry");
             }
         }
 

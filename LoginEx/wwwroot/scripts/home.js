@@ -84,6 +84,10 @@ const checkPasswordStrength = async () => {
     })
     const strength = await res.json();
     document.getElementById("file").setAttribute("value", strength);
+    if (strength < 2)
+        document.getElementById("passwordStrength").innerText = "password not strong enough";
+    else
+        document.getElementById("passwordStrength").innerText = '';
 }
 const cancel = () => {
     document.location = "https://localhost:44333/pages/Products.html";

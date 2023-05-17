@@ -6,34 +6,35 @@ namespace Business
 {
     public class UserBusiness:IUserBusiness
     {
-        IUserRepository userRepository;
-        IPasswordBusiness passwordBusiness;
+        IUserRepository _userRepository;
+        IPasswordBusiness _passwordBusiness;
 
         public UserBusiness(IUserRepository userRepository, IPasswordBusiness passwordBusiness)
         {
-            this.userRepository = userRepository;
-            this.passwordBusiness = passwordBusiness;
+            this._userRepository = userRepository;
+            this._passwordBusiness = passwordBusiness;
         }
         public async Task<User> addNewUser(User newUser)
         {
-            if (await passwordBusiness.goodPassword(newUser.UserPassword) >=2)
-                return await userRepository.addNewUser(newUser);
+            if (await _passwordBusiness.goodPassword(newUser.UserPassword) >= 2 && _userRepository.getUserByEmail(newUser.UserEmail)==null)
+                return await _userRepository.addNewUser(newUser);
+
             else
                 return null;
         }
         public async Task<User> GetUserById(int id)
         {
-            return await userRepository.getUserById(id);
+            return await _userRepository.getUserById(id);
         }
 
         public async Task<User> SignIn(User userData)
         {
-            return await userRepository.signIn(userData);
+            return await _userRepository.signIn(userData);
         }
 
         public async Task<User> updateUser(int id, User updatedUser)
         {
-            return await userRepository.updateUser( id,updatedUser);
+            return await _userRepository.updateUser( id,updatedUser);
         }
 
     

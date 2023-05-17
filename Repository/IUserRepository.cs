@@ -13,5 +13,7 @@ namespace Repository
         Task<User> getUserById(int id);
         Task<User> signIn(User uesrData);
         Task<User> updateUser( int id,User updatedUser);
+        Task<User?> getUserByEmail(string email);
+
     }
 }

@@ -16,15 +16,16 @@
         <div id="signup-link"><a onclick="document.getElementById('signup-form').style.setProperty('visibility', 'visible')">sign up</a><br /></div>
     </div>
     <br /><br />
-    <div style="visibility:hidden;" id="signup-form">
-        <h2>Sign Up</h2>
-        <input id="email" type="text" placeholder="email" /><br /><br />
-        <input id="userpwd2" type="password" placeholder="password" onkeyup="checkPasswordStrength()" /><br /><br />
-        <label for="file">Password Strength:</label>
-        <progress id="file" value="0" max="4"> 0% </progress><br /><br />
-        <input id="fname2" type="text" placeholder="first name" /><br /><br />
-        <input id="lname2" type="text" placeholder="last name" /><br /><br />
-        <button onclick="signUp()">sign up</button>
-    </div>
+          <div style="visibility:hidden;" id="signup-form">
+              <h2>Sign Up</h2>
+              <input id="email" type="text" placeholder="email" /><br /><br />
+              <input id="userpwd2" type="password" placeholder="password" onkeyup="checkPasswordStrength()" /><br /><br />
+              <label for="file">Password Strength:</label>
+              <progress id="file" value="0" max="4"> 0% </progress><br /><br />
+              <div id="passwordStrength"></div>
+              <input id="fname2" type="text" placeholder="first name" /><br /><br />
+              <input id="lname2" type="text" placeholder="last name" /><br /><br />
+              <button onclick="signUp()">sign up</button>
+          </div>
 </body>
 </html>

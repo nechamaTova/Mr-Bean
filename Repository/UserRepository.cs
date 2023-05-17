@@ -21,17 +21,17 @@ namespace Repository
             await _Store214089435Context.Users.AddAsync(newUser);
             await _Store214089435Context.SaveChangesAsync();
             return newUser;
-            //int numberOfUsers = System.IO.File.ReadLines(path).Count();
-            //newUser.UserId = numberOfUsers + 1;
-            //string userJson = JsonSerializer.Serialize(newUser);
-            //await System.IO.File.AppendAllTextAsync(path, userJson + Environment.NewLine);
+
 
         }
 
-        public async Task<User?> getUserByEmail(string email)
+        public async Task<User> getUserByEmail(string email)
         {
             var user= await _Store214089435Context.Users.Where(u => u.UserEmail == email).ToListAsync();
-            return user != null ? user[0] : null;
+            if (user.Count != 0)
+                return user[0];
+            else
+                return null;
         }
         public async Task<User> getUserById(int id)
         {

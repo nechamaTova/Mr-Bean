@@ -16,7 +16,10 @@ namespace Business
         }
         public async Task<User> addNewUser(User newUser)
         {
-            if (await _passwordBusiness.goodPassword(newUser.UserPassword) >= 2 && _userRepository.getUserByEmail(newUser.UserEmail)==null)
+
+            var pass = await _passwordBusiness.goodPassword(newUser.UserPassword);
+            var found = await _userRepository.getUserByEmail(newUser.UserEmail);
+            if (pass >= 2 && found==null)
                 return await _userRepository.addNewUser(newUser);
 
             else

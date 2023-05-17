@@ -1,5 +1,7 @@
 ﻿body {
-    background-color: #f9f9f9;
+    background-image: url('../img/homepage1.jpg');
+    background-blend-mode:overlay;
+    background-size:cover;
     font-family: Arial, sans-serif;
     font-size: 16px;
 }
@@ -12,6 +14,7 @@
     width: 400px;
     margin: 0 auto;
     text-align: center;
+    background-color:black;
 }
 
     #login-form h2, #signup-form h2, #update-form h2{
@@ -30,7 +33,7 @@
     }
 
     #login-form button, #signup-form button, #update-form button {
-        background-color: #4CAF50;
+        background-color: #706b37;
         color: #fff;
         padding: 10px 20px;
         border: none;
@@ -40,7 +43,7 @@
     }
 
         #login-form button:hover, #signup-form button:hover, #update-form button:hover {
-            background-color: #3e8e41;
+            background-color: #3c3a27;
         }
 
 #signup-link {
@@ -49,10 +52,16 @@
 }
 
     #signup-link a {
-        color: #4CAF50;
+        color: #fff;
         text-decoration: none;
     }
 
         #signup-link a:hover {
             text-decoration: underline;
         }
+div{
+    color:#fff;
+}
+h2{
+    color:white;
+}

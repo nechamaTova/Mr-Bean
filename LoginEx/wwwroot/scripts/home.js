@@ -1,8 +1,5 @@
 ﻿const signIn = async () => {
-    alert('sdfa')
 
-    const button = document.querySelector("#signInButton");
-    button.disabled = true;
     const email = document.getElementById("username").value;
     const pwd = document.getElementById("userpwd").value;
     const response = await fetch("https://localhost:44333/api/user/SignIn", {
@@ -25,6 +22,10 @@
 }
 
 const signUp = async () => {
+    const button = document.querySelector("#signUpButton");
+    button.disabled = true;
+    button.innerHTML = 'please wait...';
+    button.style.backgroundColor = "grey"
     const email = document.getElementById("email").value;
     const pwd = document.getElementById("userpwd2").value;
     const fname = document.getElementById("fname2").value;
@@ -38,13 +39,20 @@ const signUp = async () => {
         body: JSON.stringify(user)
     })
     if (response.ok) {
-        console.log(response.status)
         const newUser = await response.json();
         localStorage.setItem('user', JSON.stringify(newUser));
 
         document.location = "https://localhost:44333/pages/Products.html";
     }
-    else { alert('request failed'); }
+    else {
+        alert('request failed');
+        button.disabled = false;
+        button.innerHTML = 'sign Up';
+        button.style.backgroundColor = "#706b37";
+        button.addEventListener("mouseover", () => { button.style.backgroundColor = "#3c3a27" })
+        button.addEventListener("mouseout", () => { button.style.backgroundColor = "#706b37" })
+
+}
 }
 
 const fill = () => {

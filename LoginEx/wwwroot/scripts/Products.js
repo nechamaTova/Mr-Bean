@@ -18,7 +18,6 @@ const getAllProducts = async (query) => {
     products.map(product => {
         const temp = document.getElementById("temp-card");
         const clon = temp.content.cloneNode(true);
-        console.log(product);
         
         clon.querySelector("img").src = `../img/${product.categoryId}/${product.imagePath}.jpg`;
         clon.querySelector("h1").innerText = product.productName;

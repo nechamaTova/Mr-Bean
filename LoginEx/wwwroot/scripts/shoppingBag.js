@@ -37,16 +37,28 @@ const removeItem = (id) => {
 }
 
 const placeOrder = async () => {
-    
+    const button = document.querySelector("#placeOrder");
+    button.disabled = true;
+    button.innerHTML = 'please wait...';
+    button.style.backgroundColor = "grey"
+
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart.length == 0) return;
+    if (cart.length == 0) {
+        button.disabled = false;
+        button.innerHTML = 'check out';
+        button.style.backgroundColor = "white"
+
+
+        return;
+
+    }
     const orderDate = (new Date()).toISOString();
     const orderSum = cart.reduce((accumulator, prod) => {
         return accumulator + prod.price * prod.count;
     }, 0);
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) { alert("please sign in!"); return; }
-    const orderItems = cart.map(p => { return { productId: p.productId, Quantity :p.count} })
+    const orderItems = cart.map(p => { return { productId: p.productId, Quantity: p.count } })
     const response = await fetch("https://localhost:44333/api/Order", {
         method: 'POST',
         headers: {
@@ -54,9 +66,15 @@ const placeOrder = async () => {
         },
         body: JSON.stringify({ orderDate, orderSum, userId: user.userId, orderItems })
     })
-    console.log(response.status);
-    if (response.ok) localStorage.setItem("cart", null);
-    const order = await response.json();
-    alert(`order number ${order.orderId} created successfully`);
-    window.location = "https://localhost:44333/pages/Products.html"
+    if (response.ok) {
+        localStorage.setItem("cart", null);
+        const order = await response.json();
+        alert(`order number ${order.orderId} created successfully`);
+        window.location = "https://localhost:44333/pages/Products.html"
+
+    }
+    button.disabled = false;
+    button.innerHTML = 'check out';
+    button.style.backgroundColor = "white"
+
 }

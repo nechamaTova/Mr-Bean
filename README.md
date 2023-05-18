@@ -1,23 +1,5 @@
 # Mr Bean 
 
-## Installation
-1. Clone the repository to your local machine.
-2. Open the project in your preferred IDE.
-3. Run the application.
-## Usage
-1. Open a Application pages or use swagger.
-2. Navigate to the API endpoints to interact with the application.
-
-
-## Dependencies
-### Frameworks
-- ASP.NET Core 7.0
-### Packages
-- Entity Framework Core
-- NLog
-- zxcvbn-core
-- Swashbuckle
-
 ## Description and Structure
 This is a coffee shop site.
 The project was written with ASP.NET Core 7.0
@@ -46,6 +28,22 @@ Users passwords must be strong. Special libraries to ensure password strength.
 A configurator has been implemented to handle future changes efficiently. This approach enables easy modification of various settings and configurations without requiring significant code modifications.
 
 
+## Installation
+1. Clone the repository to your local machine.
+2. Open the project in your preferred IDE.
+3. Run the application.
+## Usage
+1. Open a Application pages or use swagger.
+2. Navigate to the API endpoints to interact with the application.
 
+
+## Dependencies
+### Frameworks
+- ASP.NET Core 7.0
+### Packages
+- Entity Framework Core
+- NLog
+- zxcvbn-core
+- Swashbuckle
 
 

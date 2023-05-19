@@ -22,7 +22,7 @@ Scalability - Async/await programming patterns have been utilized throughout the
 The project uses Swagger.
 
 ## Error Handling
-Comprehensive error handling has been implemented throughout the server-side code. All errors are appropriately handled and logged using the NLog library. A dedicated error handling middleware has been created to centralize the error handling process and ensure consistent error responses.
+Comprehensive error handling has been implemented throughout the server-side code and client code. All errors are appropriately handled and logged using the NLog library. A dedicated error handling middleware has been created to centralize the error handling process and ensure consistent error responses.
 
 ## Configuration
 A configurator has been implemented to handle future changes efficiently. This approach enables easy modification of various settings and configurations without requiring significant code modifications.
@@ -32,8 +32,7 @@ The project utilizes AutoMapper, a mapping library, to simplify and automate the
 
 ## Installation
 1. Clone the repository to your local machine.
-2. Open the project in your preferred IDE.
-3. Run the application.
+2. Run the application.
 
 ## Usage
 1. Open a Application pages or use swagger.

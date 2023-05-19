@@ -47,8 +47,7 @@ const placeOrder = async () => {
         button.disabled = false;
         button.innerHTML = 'check out';
         button.style.backgroundColor = "white"
-
-
+        alert("no items in your cart");
         return;
 
     }
